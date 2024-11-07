@@ -222,7 +222,7 @@ button {
     height: 100%;
     width: 100%;
     background-color: #FFFFFF;
-    opacity: 10;
+    opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -239,8 +239,25 @@ button {
     position: absolute;
     top: 24px;
     right: 24px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #e7e9fc;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  border 250ms cubic-bezier(0.4, 0, 0.2, 1) 
 }
 
+.mobile-icon-close-button {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    fill: #2e2f42;
+    border: none;
+  }
 
 
 .mobile-menu-container {
@@ -249,12 +266,18 @@ button {
     padding-bottom: 40px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 100%;
+    width: 100%;
 }
 
 
 .nav-item-mobile {
-    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.mobile-menu-nav {
+    margin-bottom: auto;
 }
 
 .nav-link-mobile {
@@ -266,8 +289,8 @@ button {
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.nav-link-mobile.current {
-    position: relative;
+.nav-link-mobile.current{
+ color: #404bbf;
 }
 
 .nav-link-mobile.current::after {
@@ -281,7 +304,57 @@ button {
     background-color: #404bbf;
 }
 
+.contacts-list-mobile {
+    margin-bottom: 48px;
+}
 
+.contacts-item-mobile.tel {
+    margin-bottom: 24px;
+}
+
+
+
+.contacts-link-mobile {
+    font-style: normal;
+    margin-left: auto;
+    font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #2e2f42;
+}
+
+.contacts-link-mobile.tel {
+    color:#404bbf;
+}
+
+.mobile-menu-icon-list {
+    display: flex;
+    gap: 40px;
+}
+
+
+.mobile-menu-icon-item {
+    width: 40px;
+    height: 40px;
+}
+
+
+.icon-list-items-link {
+width: 100%;
+    height: 100%;
+    background-color: #4d5ae5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+.icon-mobile {
+fill: white;
+}
 
 @media screen and (min-width: 768px) {
     .mobile-menu {
@@ -543,8 +616,15 @@ color: #434455;
     
 }
 
+@media screen and (max-width: 767px) {
+.team-container {
+    width: 296px;
+}
+}
+
 .team-member {
     background-color: #fff;
+    margin-bottom: 72px;
 }
 
 .card-content {
@@ -584,16 +664,26 @@ color: #434455;
 @media screen and (min-width: 768px) {
     .team-member {
         width: calc((100% - 24px) / 2); 
-        }
+    } 
+    .team-container {
+        width: 584px;
     }
+        }
+    
 
     @media screen and (min-width: 1158px) {
         .team-list {
-        justify-content: flex-start;
-        align-items: flex-start; 
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
         }
         .team-member {
             flex-basis: calc((100% - 72px) / 4);
+        }
+        .team-container {
+           width: 1158px;
         }
     }
 
@@ -772,13 +862,15 @@ color: #434455;
 .footer-container {
   display: flex;
   flex-wrap: wrap;
+  align-items: baseline; 
   justify-content: center;
   gap: 72px 0;
+  /* margin: 0 auto; */
 }
+
 
 .logo-container {
     text-align: center;
-    margin-bottom: 72px;
   }
 
   .footer-logo {
@@ -803,14 +895,13 @@ color: #434455;
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
-    text-align: left;
+    text-align: left; 
     color: #f4f4fd;
     transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .sm-footer {
     display: block;
-    margin-bottom: 72px;
   }
   
 
@@ -855,12 +946,11 @@ color: #434455;
     fill: #f4f4fd;
   }
 
-.subscribe-footer {
+  .subscribe-footer {
     display: flex;
     flex-direction: column;
-  width: 100%;
-  height: 80px; 
-}
+    align-items: center;
+  }
 
 .footer-text-subscribe {
   margin-bottom: 16px;
@@ -875,10 +965,11 @@ color: #434455;
 
   .footer-form {
   gap: 24px;
-  position: relative;
-  align-items: center;
-}
-  
+  display: flex;
+  flex-direction: column;
+    align-items: center;
+  }
+
   .form-input-footer {
     border: 1px solid #fff;
     border-radius: 4px;
@@ -888,8 +979,8 @@ color: #434455;
     line-height: 2;
     letter-spacing: 0.04em;
     color: #fff;
-    padding: 8px 16px;
-    margin-bottom: 16px;
+    /* padding: 8px 16px; */
+    /* margin-bottom: 16px; */
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
     background-color: transparent;
   }
@@ -915,9 +1006,7 @@ color: #434455;
     border: none;
     display: flex;
     align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-
+    justify-content: center; 
   }
   
   .icon-button-footer {
@@ -931,10 +1020,6 @@ color: #434455;
   }
 
   @media screen and (min-width: 768px) {
-    .page-footer {
-      padding: 96px 108px;
-    }
-  
     .footer-container {
       display: flex;
       align-items: baseline;
@@ -942,8 +1027,8 @@ color: #434455;
       margin: 0 auto;
       gap: 72px 24px;
       max-width: 584px; 
-    }
-  
+    }  
+
     .logo-container {
       max-width: 264px;
       margin-right: 24px;
@@ -957,23 +1042,20 @@ color: #434455;
       max-width: 208px;
     }
 
-
      .footer-text-subscribe {
         text-align: left;
       }  
   
     .footer-form {
         display: flex;
-        gap: 24px;
-        flex-direction: row;
-        justify-content: space-between;
-    }
+        gap: 24px; 
+        flex-direction: row; 
+    } 
   
     .form-input-footer {
       width: 264px;
       margin-bottom: 0;
     }
-    
   }
   
   @media screen and (min-width: 1158px) {
@@ -982,15 +1064,16 @@ color: #434455;
         padding-bottom: 100px;
     }
 
-    .page-footer .container {
+    .page-footer.container {
          display: flex;
-         flex-wrap: wrap;
+         flex-wrap: no-wrap;
     flex-direction: row; 
     align-items: baseline;
     }
 
     .footer-container {
     gap: unset;
+    max-width: 1158px; 
     }
   
     .logo-container {
@@ -1037,7 +1120,7 @@ color: #434455;
 
   
   .backdrop:not(.is-open) .modal {
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -50%);
   }
 
   .modal {
@@ -1217,6 +1300,7 @@ color: #434455;
         transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
         border 250ms cubic-bezier(0.4, 0, 0.2, 1),
         fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        flex-shrink: 0;
       }
       
       .label-text-link {
